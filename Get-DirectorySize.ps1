@@ -7,7 +7,7 @@ $startFolder = "C:\"
 
 $OutputCollection=  @()
 
-$colItems = (Get-ChildItem $startFolder | Measure-Object -property length -sum)
+$colItems = (Get-ChildItem $startFolder)
 "$startFolder -- " + "{0:N2}" -f ($colItems.sum / 1MB) + " MB"
 
 $colItems = (Get-ChildItem $startFolder -recurse | Where-Object {$_.PSIsContainer -eq $True} | Sort-Object)
